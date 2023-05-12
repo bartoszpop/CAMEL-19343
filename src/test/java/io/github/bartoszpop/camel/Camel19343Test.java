@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 
 @SpringBootTest
 class Camel19343Test {
@@ -25,7 +24,7 @@ class Camel19343Test {
     var response = producerTemplate.requestBody("direct:some", (Object) null);
 
     // Assert
-    assertEquals("Condition met." ,response);
+    assertEquals("Condition met.", response);
   }
 
   @Test
@@ -34,7 +33,7 @@ class Camel19343Test {
     var response = producerTemplate.requestBody("direct:other", (Object) null);
 
     // Assert
-    assertEquals("Condition not met." ,response);
+    assertEquals("Condition not met.", response);
   }
 
   @Configuration
@@ -73,8 +72,8 @@ class Camel19343Test {
         @Override
         public void configure() {
           templatedRoute(ROUTE_TEMPLATE_ID).routeId("someRoute")
-							.parameter(FROM_PARAMETER, "direct:some")
-							.parameter(CHOICE_PARAMETER, "some");
+              .parameter(FROM_PARAMETER, "direct:some")
+              .parameter(CHOICE_PARAMETER, "some");
         }
       };
     }
